@@ -1,0 +1,31 @@
+# Original proposal document (kept locally)
+student internship and attachment management system proposal.docx
+
+# Python / Django
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.sqlite3
+*.sqlite3.*
+.env
+!Frontend/.env
+Backend/staticfiles/
+Backend/test_media/
+Backend/media/**
+!Backend/media/*/
+!Backend/media/**/.gitkeep
+
+# Node / Vite
+node_modules/
+Frontend/dist/
+
+# Database backups
+Database/backup/*
+!Database/backup/README.md
+
+# Editors / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

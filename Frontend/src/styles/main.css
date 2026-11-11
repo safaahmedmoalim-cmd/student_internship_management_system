@@ -1,0 +1,89 @@
+:root {
+  --sims-primary: #1f4e79;
+  --sims-primary-dark: #163a5a;
+  --sims-accent: #2f8f5b;
+  --sims-bg: #f4f6f9;
+  --sims-sidebar-w: 260px;
+  --bs-primary: #1f4e79;
+  --bs-primary-rgb: 31, 78, 121;
+  --bs-link-color: #1f4e79;
+  --bs-link-color-rgb: 31, 78, 121;
+  --bs-link-hover-color: #163a5a;
+}
+
+body { background: var(--sims-bg); color: #1d2733; }
+
+.btn-primary { --bs-btn-bg: var(--sims-primary); --bs-btn-border-color: var(--sims-primary);
+  --bs-btn-hover-bg: var(--sims-primary-dark); --bs-btn-hover-border-color: var(--sims-primary-dark);
+  --bs-btn-active-bg: var(--sims-primary-dark); --bs-btn-disabled-bg: var(--sims-primary); --bs-btn-disabled-border-color: var(--sims-primary); }
+.btn-outline-primary { --bs-btn-color: var(--sims-primary); --bs-btn-border-color: var(--sims-primary);
+  --bs-btn-hover-bg: var(--sims-primary); --bs-btn-hover-border-color: var(--sims-primary); --bs-btn-active-bg: var(--sims-primary); }
+.min-w-0 { min-width: 0; }
+
+/* ---------- App shell ---------- */
+.app-shell { display: flex; min-height: 100vh; }
+.sidebar { width: var(--sims-sidebar-w); background: var(--sims-primary-dark); color: #dbe6f0; position: fixed; inset: 0 auto 0 0;
+  overflow-y: auto; z-index: 1040; transition: transform .2s ease; padding-bottom: 1rem; }
+.sidebar-brand { display: flex; align-items: center; gap: .6rem; padding: 1.1rem 1.25rem; color: #fff; text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,.08); }
+.sidebar-brand img { background: #fff; border-radius: 8px; padding: 3px; }
+.sidebar-brand span { display: flex; flex-direction: column; line-height: 1.15; }
+.sidebar-brand small { color: #9fb6cc; font-size: .75rem; }
+.sidebar .nav-link { color: #c7d6e4; display: flex; align-items: center; gap: .7rem; padding: .55rem 1.25rem; font-size: .93rem;
+  border-left: 3px solid transparent; }
+.sidebar .nav-link:hover { color: #fff; background: rgba(255,255,255,.05); }
+.sidebar .nav-link.active { color: #fff; background: rgba(255,255,255,.1); border-left-color: #7fc4a0; }
+.sidebar .nav-link i { font-size: 1.05rem; width: 1.2rem; text-align: center; }
+.sidebar-heading { text-transform: uppercase; font-size: .7rem; letter-spacing: .08em; color: #8aa4bc; padding: 1rem 1.25rem .3rem; }
+.main-area { flex: 1; margin-left: var(--sims-sidebar-w); min-width: 0; display: flex; flex-direction: column; }
+.topbar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 1020; background: #fff; border-bottom: 1px solid #e3e8ee;
+  display: flex; align-items: center; padding: .55rem 1.25rem; }
+.content { padding: 1.5rem; max-width: 1400px; width: 100%; }
+.avatar { width: 34px; height: 34px; border-radius: 50%; background: var(--sims-primary); color: #fff; display: inline-flex;
+  align-items: center; justify-content: center; font-weight: 600; }
+.sidebar-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,.4); z-index: 1030; }
+
+@media (max-width: 991.98px) {
+  .sidebar { transform: translateX(-100%); }
+  .sidebar.open { transform: translateX(0); }
+  .main-area { margin-left: 0; }
+  .content { padding: 1rem; }
+}
+
+/* ---------- Cards & widgets ---------- */
+.card { border: 1px solid #e3e8ee; border-radius: .6rem; box-shadow: 0 1px 2px rgba(16,24,40,.04); }
+.card-header { border-bottom: 1px solid #eef1f5; padding: .85rem 1.1rem; }
+.stat-card .stat-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center;
+  font-size: 1.35rem; flex-shrink: 0; }
+.stat-card .stat-value { font-size: 1.6rem; font-weight: 700; line-height: 1.1; }
+.stat-card .stat-label { font-size: .85rem; }
+a .stat-card:hover { border-color: var(--sims-primary); }
+.status-badge { font-weight: 500; font-size: .75rem; }
+.table > :not(caption) > * > * { padding: .6rem .75rem; }
+.table thead th { font-size: .78rem; text-transform: uppercase; letter-spacing: .03em; color: #5b6b7c; font-weight: 600; background: #f8fafc; }
+.table-responsive { border-radius: .5rem; }
+.info-row + .info-row { border-top: 1px dashed #edf0f4; }
+.rubric td:first-child { min-width: 220px; }
+.chart-bar { height: 10px; border-radius: 5px; background: var(--sims-primary); }
+.pre-wrap { white-space: pre-wrap; }
+.timeline-item { border-left: 3px solid #dfe5ec; padding-left: 1rem; margin-left: .3rem; padding-bottom: 1rem; }
+.timeline-item.success { border-left-color: var(--sims-accent); }
+.timeline-item.danger { border-left-color: #dc3545; }
+.page-header h1 { font-weight: 700; }
+.nav-tabs .nav-link { color: #5b6b7c; }
+.nav-tabs .nav-link.active { color: var(--sims-primary); font-weight: 600; }
+.filter-bar { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1rem; }
+.filter-bar > * { flex: 1 1 180px; max-width: 280px; }
+
+/* ---------- Auth pages ---------- */
+.auth-shell { min-height: 100vh; display: flex; }
+.auth-side { flex: 0 0 44%; background: linear-gradient(150deg, var(--sims-primary-dark), var(--sims-primary) 60%, #2a6f8f);
+  color: #fff; align-items: center; padding: 3rem 4rem; }
+.auth-logo { background: #fff; border-radius: 12px; padding: 6px; }
+.auth-points li { margin-bottom: .6rem; color: #d7e5f1; }
+.auth-main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 2rem 1rem; }
+.auth-card { width: 100%; max-width: 520px; }
+
+.modal { background: transparent; }
+.modal-backdrop { z-index: 1050; }
+.modal.d-block { z-index: 1055; }
